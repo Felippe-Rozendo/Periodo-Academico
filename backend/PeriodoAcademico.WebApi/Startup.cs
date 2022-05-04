@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using PeriodoAcademico.Contextos;
 
 namespace PeriodoAcademico.WebApi
 {
@@ -24,6 +20,8 @@ namespace PeriodoAcademico.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<PeriodoAcademicoContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -42,7 +40,7 @@ namespace PeriodoAcademico.WebApi
             }
 
             app.UseRouting();
-            app.UseCors(opt => opt.AllowAnyHeader().AllowCredentials().AllowAnyOrigin());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();
