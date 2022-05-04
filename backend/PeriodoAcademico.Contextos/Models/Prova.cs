@@ -1,4 +1,4 @@
-﻿namespace PeriodoAcademico.Persistencias.Models
+﻿namespace PeriodoAcademico.Contextos.Models
 {
     public class Prova
     {

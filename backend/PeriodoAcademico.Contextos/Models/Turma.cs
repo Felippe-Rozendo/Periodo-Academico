@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PeriodoAcademico.Persistencias.Models
+namespace PeriodoAcademico.Contextos.Models
 {
     public class Turma
     {

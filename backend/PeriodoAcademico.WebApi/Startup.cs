@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using PeriodoAcademico.Contextos;
+using PeriodoAcademico.Persistencias;
+using PeriodoAcademico.Persistencias.Interfaces;
+using PeriodoAcademico.Persistencias.Repositorios;
 
 namespace PeriodoAcademico.WebApi
 {
@@ -22,6 +24,13 @@ namespace PeriodoAcademico.WebApi
         {
 
             services.AddDbContext<PeriodoAcademicoContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
+
+            services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
+            services.AddScoped<IMateriaRepositorio, MateriaRepositorio>();
+            services.AddScoped<IProvaRepositorio, ProvaRepositorio>();
+            services.AddScoped<IProfessorRepositorio, ProfessorRepositorio>();
+            services.AddScoped<ITurmaRepositorio, TurmaRepositorio>();
+            services.AddScoped<IGeralRepositorio, GeralRepositorio>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

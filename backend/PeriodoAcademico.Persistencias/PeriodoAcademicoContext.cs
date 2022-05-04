@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PeriodoAcademico.Contextos.Models;
 
-namespace PeriodoAcademico.Contextos
+namespace PeriodoAcademico.Persistencias
 {
-    public class PeriodoAcademicoContext: DbContext
+    public class PeriodoAcademicoContext : DbContext
     {
 
         public PeriodoAcademicoContext(DbContextOptions<PeriodoAcademicoContext> options) : base(options) { }

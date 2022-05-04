@@ -8,8 +8,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PeriodoAcademico.Persistencias\PeriodoAcademico.Persistencias.csproj" />
-  </ItemGroup>
-
 </Project>
