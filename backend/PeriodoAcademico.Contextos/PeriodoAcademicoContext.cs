@@ -17,12 +17,6 @@ namespace PeriodoAcademico.Contextos
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Aluno>().HasKey(aluno => new { aluno.TurmaId });
-
-            modelBuilder.Entity<Prova>().HasKey(prova => new { prova.AlunoId, prova.MateriaId });
-
-            modelBuilder.Entity<Professor>().HasKey(professor => new { professor.MateriaId });
         }
     }
 }

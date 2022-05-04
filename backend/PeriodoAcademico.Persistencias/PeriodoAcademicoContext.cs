@@ -18,11 +18,11 @@ namespace PeriodoAcademico.Persistencias
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Aluno>().HasKey(aluno => new { aluno.TurmaId });
+            //modelBuilder.Entity<Aluno>().HasKey(aluno => new { aluno.Turma.Id });
 
-            modelBuilder.Entity<Prova>().HasKey(prova => new { prova.AlunoId, prova.MateriaId });
+            //modelBuilder.Entity<Prova>().HasKey(prova => new { prova.Aluno.Id, prova.Materia.Id });
 
-            modelBuilder.Entity<Professor>().HasKey(professor => new { professor.MateriaId });
+            //modelBuilder.Entity<Professor>().HasKey(professor => new { professor.Materia.Id });
         }
     }
 }
